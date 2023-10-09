@@ -1,14 +1,23 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const productRoutes = require("./routes/productRoutes");
+const swaggerDocs = require("./utils/swagger");
+const swaggerUi = require("swagger-ui-express");
+
 const app = express();
 
+const PORT = process.env.PORT || 3000;
+
+// Middlewares
 app.use(bodyParser.json());
 
-const PORT = 3000;
+// Routes
 
-app.get("/api", (req, res) => {
-  res.json({ message: "Backend API" });
-});
+app.use("/api/products", productRoutes);
+
+app.use("/api/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+
+// Initialize server
 
 app.listen(PORT, () => {
   console.log(`Server running on port: ${PORT}`);
