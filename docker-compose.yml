@@ -5,11 +5,18 @@ services:
       context: ./frontend
       dockerfile: Dockerfile
     ports:
-      - "3000-3010:3000"
+      - "3000:3000"
+    environment:
+      # Env route for frontend to call backend for data fetch
+      - REACT_APP_BACKEND_URL=http://localhost:5000
 
   backend:
     build:
       context: ./backend
       dockerfile: Dockerfile
     ports:
-      - "5000-5010:5000"
+      - "5000:5000"
+    environment:
+      # Env variable for swagger file.
+      - PORT=5000
+      - HOST=localhost
