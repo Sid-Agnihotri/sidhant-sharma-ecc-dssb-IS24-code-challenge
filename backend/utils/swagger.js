@@ -1,7 +1,6 @@
 const swaggerJsDoc = require("swagger-jsdoc");
-const productSchema = require("../schemas/product");
 
-const SERVER_PORT = process.env.PORT || 3000;
+const SERVER_PORT = process.env.PORT || 5000;
 const SERVER_HOST = process.env.HOST || "localhost";
 
 const options = {
