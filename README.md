@@ -16,13 +16,13 @@ For this code challenge, I have built a web application that helps catalog web a
 ## Getting Started
 
 To run this project on your local development machine, follow these steps:
+````
 
 1. Clone this GitHub repository:
 
 ```bash
 git clone https://github.com/Sid-Agnihotri/sidhant-sharma-ecc-dssb-IS24-code-challenge
-```
-
+````
 2. Navigate to the project directory:
 
 ```bash
