@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 const productRoutes = require("./routes/productRoutes");
 const swaggerDocs = require("./utils/swagger");
 const swaggerUi = require("swagger-ui-express");
+const cors = require("cors");
 
 const app = express();
 
@@ -10,6 +11,7 @@ const PORT = process.env.PORT || 3000;
 
 // Middlewares
 app.use(bodyParser.json());
+app.use(cors());
 
 // Routes
 

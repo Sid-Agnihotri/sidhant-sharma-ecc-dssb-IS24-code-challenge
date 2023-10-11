@@ -10,7 +10,7 @@ const productSchema = Joi.object({
   developers: Joi.array().items(Joi.string().required()).required(),
   startDate: Joi.date().required(),
   methodology: Joi.string().valid("Agile", "Waterfall"),
-  location: Joi.string().uri().required(),
+  location: Joi.string().required(),
 });
 //Constants
 const STATUS_CODES = {
@@ -62,7 +62,8 @@ exports.addProduct = (req, res) => {
       .status(STATUS_CODES.BAD_REQUEST)
       .json({ message: error.details[0].message });
   }
-  products.push(newProduct);
+  // Moves the new added item to the top of the list.
+  products.unshift(newProduct);
   res.status(STATUS_CODES.CREATED).json(newProduct);
 };
 
