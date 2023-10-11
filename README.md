@@ -47,6 +47,52 @@ I've provided Swagger documentation for the API. You can access it at:
 http://localhost:5000/api/api-docs
 ```
 
+### Running the Application
+If you encounter issues with the backend port already being in use, follow the steps below:
+
+Stop the Docker Containers:
+Bring down the running containers by executing:
+
+```bash
+docker-compose down
+```
+#### Resolve the Port Conflict:
+
+You can free up the port that's in use and then restart the docker containers.
+Alternatively, you can specify a different port that's available. To do this, update the docker-compose.yml file as detailed in the next step.
+Update the docker-compose.yml File:
+Adjust the ports and environment variables based on the available port you want to use:
+
+```bash
+ports:
+  - "3000:3000" # This is the frontend port; adjust if needed
+
+environment:
+  # URL for the frontend to connect to the backend
+  - REACT_APP_BACKEND_URL=http://localhost:<YOUR_AVAILABLE_PORT>  # Replace <YOUR_AVAILABLE_PORT> with your port
+
+backend:
+  build:
+    context: ./backend
+    dockerfile: Dockerfile
+  ports:
+    - "5000:5000" # This is the backend port; replace 5000 with <YOUR_AVAILABLE_PORT>
+  environment:
+    # Environment variables for the Swagger configuration
+    - PORT=<YOUR_AVAILABLE_PORT> # Replace <YOUR_AVAILABLE_PORT> with your port
+    - HOST=localhost
+
+```
+
+Once done, you can run the commands below - 
+
+```bash
+docker-compose build
+docker-compose up
+```
+
+Now, you should be able to run your application using the updated port settings.
+
 ## User Stories
 
 ### User Story One (View Products)
