@@ -63,7 +63,7 @@ const products = [
     productId: 7,
     productName: "WebApp 7",
     productOwner: "Olivia White",
-    developers: ["Ursula", "Vera", "Walter", "Xander", "Yara"],
+    developers: ["Ursula", "Vera", "Walter", "Xander", "Megan"],
     scrumMaster: "Olivia White",
     startDate: "2023-07-20",
     methodology: "Waterfall",

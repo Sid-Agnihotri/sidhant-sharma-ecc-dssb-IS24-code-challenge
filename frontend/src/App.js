@@ -157,6 +157,7 @@ const App = () => {
           />
         </Grid>
       </Box>
+      {/* Snackbar */}
       <Snackbar
         open={snackbarOpen}
         autoHideDuration={6000}

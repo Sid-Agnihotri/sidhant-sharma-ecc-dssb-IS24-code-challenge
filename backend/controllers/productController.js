@@ -1,7 +1,8 @@
 const products = require("../data/product");
+
 const Joi = require("joi");
 
-// Schema
+// Schema for validation
 const productSchema = Joi.object({
   productId: Joi.number().required(),
   productName: Joi.string().required(),

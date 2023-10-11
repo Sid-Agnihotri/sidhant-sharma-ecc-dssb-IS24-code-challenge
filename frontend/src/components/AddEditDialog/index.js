@@ -26,11 +26,13 @@ const defaultProduct = {
   location: "",
 };
 
+// Helper function to avoid rewiritng defaultProduct Object.
 const mapProductToState = (product = {}) => {
   product = product || {};
   let result = {};
 
   for (let key in defaultProduct) {
+    // Maps a key-value pair depending on whether the product from props is empty or not.
     result[key] =
       product[key] !== undefined ? product[key] : defaultProduct[key];
   }
@@ -44,13 +46,14 @@ const AddEditDialog = ({ open, onClose, onSave, product }) => {
   useEffect(() => {
     setProductData(mapProductToState(product));
   }, [product]);
-
+  // Custom hook to validate data
   const { errors, isValid, setErrors } = useProductFormValidation();
 
   const handleSaveClick = () => {
     if (isValid(productData)) {
       // Removing the productId when it's a new product
       let dataToSend = { ...productData };
+      // delete productId from the object if it's a new data.
       if (!product) {
         delete dataToSend.productId;
       }

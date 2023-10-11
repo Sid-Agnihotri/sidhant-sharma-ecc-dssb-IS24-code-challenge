@@ -67,13 +67,16 @@ const ProductTable = ({
       },
     },
   ];
+
   return (
     <DataGrid
       onCellDoubleClick={(e) => {
         setSelectedProduct(e.row);
         setDialogOpen(true);
       }}
+      localeText={{ noRowsLabel: "No Product found." }}
       getRowId={(row) => row.productId}
+      noRowsOverlay
       rows={productsData}
       columns={columns}
       initialState={{
@@ -83,6 +86,7 @@ const ProductTable = ({
       }}
       pageSizeOptions={[5, 10]}
       sx={{ borderRadius: "20px" }}
+      autoHeight
     />
   );
 };

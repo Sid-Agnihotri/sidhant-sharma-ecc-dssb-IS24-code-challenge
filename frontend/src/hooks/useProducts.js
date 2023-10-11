@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const BASE_URL = "http://localhost:3000/api";
+const BASE_URL = "http://localhost:5000/api";
 const useProducts = () => {
   const [productsData, setProductsData] = useState([]);
 
@@ -64,7 +64,6 @@ const useProducts = () => {
       const response = await axios.post(`${BASE_URL}/products`, product);
 
       await fetchProducts();
-      // setProductsData((prevProducts) => [response.data, ...prevProducts]);
       return {
         status: response.status,
         success: true,
