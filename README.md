@@ -30,16 +30,14 @@ cd sidhant-sharma-ecc-dssb-IS24-code-challenge
 ```
 
 3. Install dependencies for the frontend and backend components. This project uses Docker to run the application:
+install Docker (if not already installed) and run the following Docker Compose command:
 
 ```bash
 # Navigate to the root directory and run
 docker-compose up --build
 ```
 
-4. The Docker command from step 3 should run both frontend and backend for you. 
-
-
-The project should now be running locally, and you can access it in your web browser at `http://localhost:3000`.
+4. The project should now be running locally, and you can access it in your web browser at `http://localhost:3000`.
 
 ## API Documentation (Swagger)
 
